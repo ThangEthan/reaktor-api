@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 app.use(cors())
 
-// sendFile will go here
+
 app.get('/', function(req, res) {
     fs.readFile('rule.txt', 'utf8', (err, data) => {
         if (err) {
