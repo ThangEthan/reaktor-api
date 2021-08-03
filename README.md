@@ -11,7 +11,24 @@ Here we go. Your task is to build an interactive, hyperlinked rulebook applicati
 
 
 # Documentation
-1. Regex statement will catch all rule according to their type. Ex: <i>"1. Game Concepts"</i> is chapter index. <i>"100. General"</i> is chapter. <i>"100.1. These Magic ..."</i> is rule index. <i>"100.1a A two-player ..."</i> is rule.<br>
+1. Regex statement will catch all rule according to their type. Ex: 
+* *"1. Game Concepts"* is chapter index.
+```javascript
+chapter_index_regex = /\n(\d{1})\.\ .+/g
+```
+* *"100. General"* is chapter.
+```javascript
+chapter_regex = /\n((\d{1})\d{2})\.\ .+/g
+```
+* *"100.1. These Magic ..."* is rule index.
+```javascript
+rule_index_regex = /\n((\d{3})\.\d+)\..+/g
+```
+* *"100.1a A two-player ..."* is rule.
+```javascript
+rule_regex = /\n(\d{3}\.\d+)+[a-z].+/g
+```
+
 2. Regex statement with capture group export its result to JSON. Ex:
 
 * *1. Game Concepts* - will have “1” captured as its number
@@ -49,5 +66,6 @@ rule =
 }
 ```
 
-
+3. Data get joined in SQL fashion using map and reduce.
+---
   
