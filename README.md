@@ -1,6 +1,6 @@
 # Magic the Gathering assignment – Instructions
 
-Here we go. Your task is to build an interactive, hyperlinked rulebook application for a card game, of which rules are described in rules.txt.
+Here we go. Your task is to build an interactive, hyperlinked rulebook application for a card game, of which rules are described in <a href="https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt">rules.txt</a>.
 
 **When submitting your solution, your application must:**
 
