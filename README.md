@@ -9,3 +9,14 @@ Here we go. Your task is to build an interactive, hyperlinked rulebook applicati
 <li>Display the selected chapter beside the Table of Contents, containing all rules in that chapter. For instance, “100.2a” is a rule</li>
 <li>Include a search box for filtering the rules displayed on the page, so that you can, for instance, type “commander” and find all rules that mention the word “commander”</li>
 </ul>
+
+<h1>Documentation</h1>
+1. Regex statement will catch all rule according to their type. Ex: <i>"1. Game Concepts"</i> is chapter index. <i>"100. General"</i> is chapter. <i>"100.1. These Magic ..."</i> is rule index. <i>"100.1a A two-player ..."</i> is rule.<br>
+2. Regex statement with capture group export its result to JSON. JSON structure of each type:<br>
+```
+chapter_index=            
+{                         
+  number:          
+  name:                 
+}        
+```
