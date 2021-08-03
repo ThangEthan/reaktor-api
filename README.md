@@ -1,4 +1,4 @@
-<h1>Magic the Gathering assignment – instructions</h1>
+<h1>Magic the Gathering assignment – Instructions</h1>
 
 Here we go. Your task is to build an interactive, hyperlinked rulebook application for a card game, of which rules are described in rules.txt.
 
