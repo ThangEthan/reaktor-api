@@ -66,4 +66,4 @@ rule =
 }
 ```
 
-3. Data get joined in SQL fashion using map and reduce forming a JSON structure of the rulebook.
+3. Data get joined in SQL fashion using map and reduce, forming a JSON structure of the rulebook.
