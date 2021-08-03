@@ -4,7 +4,7 @@ Here we go. Your task is to build an interactive, hyperlinked rulebook applicati
 
 **When submitting your solution, your application must:**
 
-* Have a web frontend</li>
+* Have a web frontend
 * Include a Table of Contents with hyperlinks to chapters containing game rules. For instance, “100. General” is a chapter
 * Display the selected chapter beside the Table of Contents, containing all rules in that chapter. For instance, “100.2a” is a rule
 * Include a search box for filtering the rules displayed on the page, so that you can, for instance, type “commander” and find all rules that mention the word “commander”
