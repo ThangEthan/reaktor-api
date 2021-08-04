@@ -66,7 +66,7 @@ rule =
 }
 ```
 
-3. Data get joined in SQL fashion using map and reduce, forming a JSON structure of the rulebook.
+3. Data get joined in SQL fashion using map and reduce, forming a JSON structure of the rulebook. Ex: rule_index and rule can be join by match rule_index.number and rule.rule_index_number.
 
 ### Hosting
 Application is hosted in AWS using Elastic Beanstalk or Elastic Kubernetes Services.
