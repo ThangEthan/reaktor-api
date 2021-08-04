@@ -67,3 +67,14 @@ rule =
 ```
 
 3. Data get joined in SQL fashion using map and reduce, forming a JSON structure of the rulebook.
+
+### Hosting
+Application is hosted in AWS using Elastic Beanstalk or Elastic Kubernetes Services.
+
+For EB run:
+```bash
+eb init;
+eb create;
+eb deploy;
+```
+For EKS, YAML config file can be found <a href="https://github.com/ThangEthan/reaktor-kube/blob/master/api.yaml">here</a>.
