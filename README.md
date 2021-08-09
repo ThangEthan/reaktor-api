@@ -78,3 +78,6 @@ eb create;
 eb deploy;
 ```
 For EKS, YAML config file can be found <a href="https://github.com/ThangEthan/reaktor-kube/blob/master/api.yaml">here</a>.
+
+### Auto deployment 
+Application will be automatically deploy to Elastic Beanstalk when new code is pused to master branch
