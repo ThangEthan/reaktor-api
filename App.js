@@ -1,12 +1,25 @@
 const express = require('express');
 const path = require('path');
 var cors = require('cors')
-const fs = require('fs')
+const fs = require('fs');
+
 
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(cors())
 
+function join(obj1, obj2 ,key_name, result_key_name) {
+    return obj1.map(x => {
+        return obj2.reduce(function (grouped, y) {
+            if (grouped["number"] == y[key_name]){
+                (grouped[result_key_name] = grouped[result_key_name] || []).push(y)
+                return grouped;
+            }
+            else
+                return grouped;
+        }, x) 
+    })
+};
 
 app.get('/', function(req, res) {
     fs.readFile('rule.txt', 'utf8', (err, data) => {
@@ -25,38 +38,10 @@ app.get('/', function(req, res) {
         let rule_index = [...data.matchAll(rule_index_regex)].map(x => { return { "number": x[1], "chapter_number": x[2], "name": x[0].trim() } })
         let rule = [...data.matchAll(rule_regex)].map(x => { return { "number": x[1], "rule_index_number": x[2], "name": x[0].trim() } })
         //Join data
-        let joinedRuleIndex = rule_index.map(x => {
-            return rule.reduce(function (grouped, y) {
-                if (grouped.number == y.rule_index_number){
-                    (grouped["rules"] = grouped["rules"] || []).push(y)
-                    return grouped;
-                }
-                else
-                    return grouped;
-            }, x)
-        })
-    
-        let joinedChapter = chapter.map(x => {
-            return joinedRuleIndex.reduce(function (grouped, y) {
-                if (grouped.number == y.chapter_number){
-                    (grouped["rule_index"] = grouped["rule_index"] || []).push(y)
-                    return grouped;
-                }
-                else
-                    return grouped;
-            }, x)
-        })
-    
-        let joinedChapterIndex = chapter_index.map(x => {
-            return joinedChapter.reduce(function (grouped, y) {
-                if (grouped.number == y.chapter_index_number){
-                    (grouped["chapters"] = grouped["chapters"] || []).push(y)
-                    return grouped;
-                }
-                else
-                    return grouped;
-            }, x)
-        })
+        let joinedRuleIndex = join(rule_index, rule, "rule_index_number", "rules")
+        let joinedChapter = join(chapter, joinedRuleIndex, "chapter_number", "rule_index")
+        let joinedChapterIndex = join(chapter_index, joinedChapter, "chapter_index_number", "chapters") 
+
         res.json({
             "joinedChapterIndex": joinedChapterIndex,
             "joinedChapter": joinedChapter
