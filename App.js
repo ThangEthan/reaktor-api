@@ -58,7 +58,7 @@ app.get('/', function(req, res) {
             }, x)
         })
         res.json({
-            "joinedChapterIndex": joinedRuleIndex,
+            "joinedChapterIndex": joinedChapterIndex,
             "joinedChapter": joinedChapter
         })
     })
