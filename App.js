@@ -7,8 +7,8 @@ app.use(cors())
 const port = process.env.PORT || 8080;
 
 function join(obj1, obj2 ,key_name, result_key_name) {
-    return obj1.map(x => {
-        return obj2.reduce(function (grouped, y) {
+    obj1.map(x => {
+        obj2.reduce(function (grouped, y) {
             if (grouped["number"] == y[key_name]){
                 (grouped[result_key_name] = grouped[result_key_name] || []).push(y)
                 return grouped;
