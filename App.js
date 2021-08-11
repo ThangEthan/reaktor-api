@@ -34,13 +34,12 @@ app.get('/', function(req, res) {
         let rule_index = [...data.matchAll(rule_index_regex)].map(x => { return { "number": x[1], "chapter_number": x[2], "name": x[0].trim() } })
         let rule = [...data.matchAll(rule_regex)].map(x => { return { "number": x[1], "rule_index_number": x[2], "name": x[0].trim() } })
         //Join data
-        let joinedChapterIndex = join(chapter_index, chapter, "chapter_index_number", "chapters") //For rendering table of content
-        let joinedRuleIndex = join(rule_index, rule, "rule_index_number", "rules")
-        let joinedChapter = join(chapter, joinedRuleIndex, "chapter_number", "rule_index")        //For rendering rules
+        join(rule_index, rule, "rule_index_number", "rules")
+        join(chapter, rule_index, "chapter_number", "rule_index")     
+        join(chapter_index, chapter, "chapter_index_number", "chapters")
 
         res.json({
-            "joinedChapterIndex": joinedChapterIndex,
-            "joinedChapter": joinedChapter
+            "joinedChapterIndex": chapter_index
         })
     })
 });
