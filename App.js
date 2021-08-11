@@ -41,7 +41,8 @@ app.get('/', function(req, res) {
         join(chapter_index, chapter, "chapter_index_number", "chapters")
 
         res.json({
-            "joinedChapterIndex": chapter_index
+            "joinedChapterIndex": chapter_index,
+            "joinedChapter": chapter
         })
     })
 });
