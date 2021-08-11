@@ -1,7 +1,9 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors')
 
 const app = express();
+app.use(cors())
 const port = process.env.PORT || 8080;
 
 function join(obj1, obj2 ,key_name, result_key_name) {
