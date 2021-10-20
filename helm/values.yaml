@@ -1,0 +1,11 @@
+image:
+  repository: thangvu201098/reaktor-api
+  tag: latest
+  pullPolicy: IfNotPresent
+ingress:
+  host: reaktor-api.192.168.49.2.nip.io
+service:
+  name: reaktor-api
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 8080
